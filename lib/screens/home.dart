@@ -6,6 +6,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _counter = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Noticia Aqui', style: Theme.of(context).textTheme.display2),
-            Text('1', style: Theme.of(context).textTheme.display1),
+            Text('Noticia Aqui', style: Theme.of(context).textTheme.headline4),
+            Text(_counter.toString(), style: Theme.of(context).textTheme.headline2),
             //RaisedButton(
              //   child: Row(
              //     children: <Widget>[
@@ -41,7 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Icon(Icons.plus_one),
         backgroundColor: Colors.pinkAccent,
         onPressed: (){
-          print('clicado');
+         setState(() {
+            _counter ++;
+            print('clicado');
+         });
+           
+                  
         }
         ),
       bottomNavigationBar: Container(
